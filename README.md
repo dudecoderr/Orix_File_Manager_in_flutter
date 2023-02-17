@@ -1,16 +1,24 @@
 # orix_filemanager_flutterui
 
-A new Flutter project.
 
-## Getting Started
+#### Github Link :https://github.com/dudecoderr/Orix_File_Manager_in_flutter.git
 
-This project is a starting point for a Flutter application.
+                               
+# Changelog
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Note: _**last updated February 2023 configured project to latest flutter version 3.7.3**_
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<p align="center">
+<img src="" width="200%">
+</p>
+
+**Packages used:**
+
+ -  custom_navigation_bar: ^0.8.2
+ -  flutter_screenutil: ^5.6.1
+ -  step_progress_indicator: ^1.0.2
+ -  drop_shadow_image: ^0.9.1
+ -  flutter_slidable: ^2.0.0
+ -  flutter_staggered_animations: ^1.0.0
