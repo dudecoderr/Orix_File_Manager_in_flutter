@@ -48,6 +48,9 @@ dependencies:
 ##================flutter_slidable==========##
   flutter_slidable: ^2.0.0
 
+  ##================flutter_switch==========##
+  flutter_switch: ^0.3.2
+
 ##===================staggerd animation ================##
   flutter_staggered_animations: ^1.0.0
   # The following adds the Cupertino Icons font to your application.
