@@ -44,7 +44,7 @@ class Category extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         child:Container(
-            width: 290.w,
+            width: 292.w,
             height: 110.h,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r), color: kLightGreyColor),
             child: Row(
