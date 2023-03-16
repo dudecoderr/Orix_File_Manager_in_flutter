@@ -37,6 +37,7 @@ class Category extends StatelessWidget {
   final String title;
   Category({super.key, required this.image_location, required this.image_caption, this.icons, required this.title});
 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
