@@ -39,9 +39,9 @@ class _FigmaDataState extends State<FigmaData> {
                       child: Slidable(
                           key: const ValueKey(1),
                           endActionPane: ActionPane(
-                            dismissible: DismissiblePane(onDismissed: () {
-                              // we can able to perform to some action here
-                            }),
+                            // dismissible: DismissiblePane(onDismissed: () {
+                            //   // we can able to perform to some action here
+                            // }),
                             motion: const DrawerMotion(),
                             children: [
                               SlidableAction(
@@ -66,7 +66,7 @@ class _FigmaDataState extends State<FigmaData> {
                                 flex: 3,
                                 onPressed: (value) {
                                   setState(() {
-                                    figmaFiles.add(index);
+                                    // figmaFiles.add(index);
                                   });
                                 },
                                 backgroundColor: kWhiteColor,
@@ -79,7 +79,7 @@ class _FigmaDataState extends State<FigmaData> {
                                 flex: 3,
                                 onPressed: (value) {
                                   setState(() {
-                                    figmaFiles.add(index);
+                                    // figmaFiles.add(index);
                                   });
                                 },
                                 backgroundColor: kWhiteColor,

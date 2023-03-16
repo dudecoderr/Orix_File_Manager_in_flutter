@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:orix_filemanager_flutterui/screens/home_page/home_screen.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/image_constant.dart';
-import '../../constant/list/listview_constant.dart';
+import '../../constant/list/menu_Common.dart';
 import '../../constant/string_constant.dart';
 
 class MenuPage extends StatefulWidget {
@@ -16,6 +18,7 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  bool status = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +71,7 @@ class _MenuPageState extends State<MenuPage> {
                       );
                     },
                     child: const Icon(
-                      Icons .close ,
+                      Icons.close,
                       color: kWhiteColor,
                     )),
               ),
@@ -194,40 +197,35 @@ class _MenuPageState extends State<MenuPage> {
               SizedBox(
                 height: 75.h,
               ),
-              SizedBox(
-                height: 300.h,
-                child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: menuFiles.length,
-                    itemBuilder: (context, index) {
-                      return AnimationLimiter(
-                          child: Column(
-                          children: AnimationConfiguration.toStaggeredList(
-                          duration: const Duration(seconds: 1),
-                      childAnimationBuilder: (widget) => SlideAnimation(
-                      horizontalOffset: MediaQuery.of(context).size.width / 2,
-                      child: FadeInAnimation(child: widget),
-                      ),
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     PageTransition(
-                            //         type:
-                            //         PageTransitionType.bottomToTop,
-                            //         duration: const Duration(
-                            //             milliseconds: 200),
-                            //         child: SongScreen()));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 30.w, right: 30.w),
-                            child: Container(
+              AnimationLimiter(
+              child: Column(
+              children: AnimationConfiguration.toStaggeredList(
+              duration: const Duration(seconds: 1),
+              childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: MediaQuery.of(context).size.width / 2,
+              child: FadeInAnimation(child: widget),
+              ),
+              children: [
+                SizedBox(
+                  height: 300.h,
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 30.w, right: 30.w),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            MenuConstant(
+                              menus: Icons.person,
+                              titles: profileAccount,
+                              songtypes: edityour,
+                            ),
+                            Container(
                               height: 100.h,
                               margin: const EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r),  color: kLightGreyColor,),
-                              padding:  EdgeInsets.only(left: 20.w,right: 10.w),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.r),
+                                color: kLightGreyColor,
+                              ),
+                              padding: EdgeInsets.only(left: 20.w, right: 10.w),
                               child: Row(
                                 children: [
                                   Container(
@@ -238,7 +236,7 @@ class _MenuPageState extends State<MenuPage> {
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                     child: Icon(
-                                      menuFiles[index].icon,
+                                      Icons.notifications,
                                       size: 25.sp,
                                       color: kWhiteColor,
                                     ),
@@ -250,29 +248,62 @@ class _MenuPageState extends State<MenuPage> {
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            menuFiles[index].titles,
-                                            style: TextStyle(fontFamily: "Mulish", fontSize: 15.sp, fontWeight: FontWeight.w900),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                pushnot,
+                                                style: TextStyle(fontFamily: "Mulish", fontSize: 15.sp, fontWeight: FontWeight.w900),
+                                              ),
+                                              SizedBox(
+                                                width: 23.w,
+                                              ),
+                                              FlutterSwitch(
+                                                width: 45.0,
+                                                activeColor: kBlackColor,
+                                                height: 25.0,
+                                                valueFontSize: 12.0,
+                                                toggleSize: 16.0,
+                                                activeToggleColor: kYellowColor,
+                                                value: status,
+                                                onToggle: (val) {
+                                                  setState(() {
+                                                    status = val;
+                                                  });
+                                                },
+                                              ),
+                                            ],
                                           ),
                                           SizedBox(
                                             height: 4.h,
                                           ),
                                           Text(
-                                            menuFiles[index].songtypes,
-                                            style: TextStyle(fontSize: 12.sp,color: kGreyColor,fontFamily: "Mulish", fontWeight: FontWeight.bold),
+                                            setUpPush,
+                                            style: TextStyle(fontSize: 12.sp, color: kGreyColor, fontFamily: "Mulish", fontWeight: FontWeight.bold),
                                           ),
                                         ],
                                       ),
                                     ),
                                   ),
-
                                 ],
                               ),
                             ),
-                          ),
+                            MenuConstant(
+                              menus: Icons.watch_later,
+                              titles: faqs,
+                              songtypes: frequently,
+                            ),
+                            MenuConstant(
+                              menus: Icons.lock,
+                              titles: logOut,
+                              songtypes: wantLogout,
+                            )
+                          ],
                         ),
-                      ],),),);
-                    }),
+                      )),
+                ),
+              ],
+              ),
+              ),
               ),
             ],
           )),
